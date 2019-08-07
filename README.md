@@ -1,6 +1,9 @@
 ### Getting Started
 This project depends on MoveIt! framework and Gazebo 9. In order to get all necessary packages, run the commands:
 
+```Shell
+./gazebo_model_downloader.sh
+```
 
 ```Shell
 sudo apt-get install gazebo9 libgazebo9-dev ros-melodic-gazebo9*
