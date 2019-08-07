@@ -1,0 +1,9 @@
+<library path="lib/libhector_moveit_controller_manager">
+  <class name="hector_moveit_controller_manager/HectorMoveItControllerManager"
+         type="hector_moveit_controller_manager::HectorMoveItControllerManager"
+         base_class_type="moveit_controller_manager::MoveItControllerManager">
+    <description>
+    </description>
+  </class>
+
+</library>
