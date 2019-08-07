@@ -12,6 +12,8 @@
   <depend>actionlib_msgs</depend>
   <depend>roscpp</depend>
   <depend>hector_uav_msgs</depend>
+  <depend>control_msgs</depend>
+  <depend>trajectory_msgs</depend>
   <exec_depend>message_generation</exec_depend>
 
   <export>
