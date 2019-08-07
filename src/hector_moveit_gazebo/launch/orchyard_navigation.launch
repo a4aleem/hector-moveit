@@ -17,31 +17,25 @@
                 
     <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor_with_kinect.launch">    
       <arg name="use_ground_truth_for_tf" value="$(arg use_ground_truth_for_tf)" />
-      <arg name="x" value="20" />
-      <arg name="yaw" value="3.14"/>
     </include>
 
   <!-- The name of the parameter under which the URDF is loaded -->
   <arg name="robot_description" default="robot_description"/>
 
-
-
   <!-- We do not have a robot connected, so publish fake joint states -->
-  
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
-  	<param name="use_gui" value="false"/>
-    <param name="publish_frequency" type="double" value="50.0" />
-    <rosparam param="source_list">[/move_group/fake_controller_joint_states]</rosparam>
+    <param name="use_gui" value="false"/>
   </node>
 
-
-  
   <include file="$(find hector_moveit_config)/launch/move_group.launch">
     <arg name="allow_trajectory_execution" value="true"/>
-    <arg name="fake_execution" value="true"/>
+    <arg name="fake_execution" value="false"/>
     <arg name="info" value="false"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>
+
+  <!-- Start the moveit action controller-->
+  <node name="follow_multi_dof_joint_trajectory_action_server" pkg="hector_moveit_actions" type="follow_multi_dof_joint_trajectory_action_server" output="screen"/> 
 
   <!-- Adjust grid size to have more granular exploration-->
   <param name="grid_size" type="double" value="13"/> 
