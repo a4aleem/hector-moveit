@@ -34,6 +34,10 @@ add_library(${PROJECT_NAME}
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
+add_dependencies(
+  ${PROJECT_NAME} ${hector_moveit_actions_EXPORTED_TARGETS}
+)
+
 install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
 
 install(FILES hector_moveit_controller_manager_plugin_description.xml
