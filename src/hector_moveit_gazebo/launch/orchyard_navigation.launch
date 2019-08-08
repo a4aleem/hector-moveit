@@ -15,7 +15,7 @@
     <arg name="gui" value="$(arg use_gui)"/>
   </include>
                 
-    <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor_with_kinect.launch">    
+    <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor_with_kinect.launch">
       <arg name="use_ground_truth_for_tf" value="$(arg use_ground_truth_for_tf)" />
     </include>
 
@@ -35,11 +35,11 @@
   </include>
 
   <!-- Start the moveit action controller-->
-  <node name="follow_multi_dof_joint_trajectory_action_server" pkg="hector_moveit_actions" type="follow_multi_dof_joint_trajectory_action_server" output="screen"/> 
+  <node name="follow_multi_dof_joint_trajectory_action_server" pkg="hector_moveit_actions" type="follow_multi_dof_joint_trajectory_action_server" output="screen"/>
 
   <!-- Adjust grid size to have more granular exploration-->
-  <param name="grid_size" type="double" value="13"/> 
+  <param name="grid_size" type="double" value="13"/>
   <!-- Visualisation RVIZ -->
   <node pkg="rviz" type="rviz" name="rviz" args="-d $(find hector_moveit_config)/launch/moveit.rviz" output="screen"/>
-  
+
 </launch>

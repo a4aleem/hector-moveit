@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(Boost REQUIRED COMPONENTS system)
 add_action_files(
   DIRECTORY action
-  FILES ExecuteDroneTrajectory.action FollowMultiDofJointTrajectory.action
+  FILES FollowMultiDofJointTrajectory.action
 )
 
 generate_messages(
@@ -32,17 +32,8 @@ catkin_package(
 )
 
 include_directories(${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
-
-add_executable(trajectory_controller src/trajectory_executer.cpp)
 add_executable(follow_multi_dof_joint_trajectory_action_server src/follow_multi_dof_joint_trajectory_action_server.cpp)
-
-target_link_libraries(trajectory_controller ${catkin_LIBRARIES})
 target_link_libraries(follow_multi_dof_joint_trajectory_action_server ${catkin_LIBRARIES})
-
-add_dependencies(
-  trajectory_controller
-  ${hector_moveit_actions_EXPORTED_TARGETS} hector_uav_msgs_generate_messages
-)
 
 add_dependencies(
   follow_multi_dof_joint_trajectory_action_server
